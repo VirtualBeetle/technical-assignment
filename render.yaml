@@ -1,0 +1,72 @@
+# Render Blueprint - deploys the full stack (Postgres + backend + frontend)
+# from this one repo with no manual dashboard configuration.
+#
+# Deploy: push this repo to GitHub, then in Render click
+# New -> Blueprint, point it at the repo, and click Apply. Render reads this
+# file and creates all three resources below, wired together automatically.
+#
+# Schema reference: https://render.com/schema/render.yaml.json
+
+databases:
+  - name: senus-board-report-db
+    plan: free
+    databaseName: senus_board_report
+    user: senus
+    region: oregon
+
+services:
+  # FastAPI backend. Public (type: web) so a reviewer can also hit
+  # /api/health or /docs directly, not just through the frontend.
+  - type: web
+    name: senus-board-report-backend
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    # Root-context build so `data/` (the gold financial dataset + the source
+    # PDFs the extraction pipeline is validated against) gets baked into the
+    # image - see the comment in backend/Dockerfile.
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: senus-board-report-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEMO_CEO_EMAIL
+        value: ceo@senus.com
+      - key: DEMO_CEO_PASSWORD
+        value: Senus2030!
+      - key: AI_PROVIDER
+        value: none
+      - key: ENVIRONMENT
+        value: production
+      - key: DATA_DIR
+        value: /app/data
+      # Not actually load-bearing in production: the browser only ever talks
+      # to the frontend's own origin (see next.config.js rewrites), so the
+      # backend's CORS check never gets exercised through the app UI. Kept as
+      # a safety default in case someone calls the backend's public URL from
+      # a browser directly.
+      - key: CORS_ORIGINS
+        value: http://localhost:3000
+
+  # Next.js frontend. This is the URL you actually open and give to the
+  # reviewer.
+  - type: web
+    name: senus-board-report-frontend
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    envVars:
+      # host:port of the backend's private-network address (no scheme -
+      # next.config.js normalizes this to http://<value> at request time).
+      - key: BACKEND_INTERNAL_URL
+        fromService:
+          type: web
+          name: senus-board-report-backend
+          property: hostport

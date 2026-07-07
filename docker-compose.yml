@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: senus
+      POSTGRES_PASSWORD: senus
+      POSTGRES_DB: senus_board_report
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://senus:senus@db:5432/senus_board_report
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me-in-production}
+      DEMO_CEO_EMAIL: ${DEMO_CEO_EMAIL:-ceo@senus.com}
+      DEMO_CEO_PASSWORD: ${DEMO_CEO_PASSWORD:-Senus2030!}
+      AI_PROVIDER: ${AI_PROVIDER:-none}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CORS_ORIGINS: http://localhost:3000
+      ENVIRONMENT: production
+      DATA_DIR: /app/data
+    # Convenience for local dev only: overlays the baked-in data/ with your
+    # working copy so editing data/senus_financials.json doesn't require a
+    # rebuild, just `docker compose restart backend`. Not used/needed on
+    # Render - the Dockerfile bakes data/ into the image for that case.
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      # Server-side only (read by next.config.js's rewrites()); the browser
+      # never sees this value or talks to the backend directly. "backend" is
+      # this compose file's service name, resolved via Docker's internal DNS.
+      BACKEND_INTERNAL_URL: http://backend:8000
+    ports:
+      - "3000:3000"
+
+volumes:
+  db_data:

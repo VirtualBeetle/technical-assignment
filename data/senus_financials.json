@@ -1,0 +1,321 @@
+{
+  "_meta": {
+    "description": "Structured financial dataset for Senus PLC, extracted from the source filings listed under provenance. This file is the deterministic 'gold' output of the extraction pipeline (backend/app/ingestion). It is what a human reviewer (or the regex/LLM extraction stage) should reproduce from the raw PDFs in data/source_documents/.",
+    "currency": "EUR",
+    "extracted_by": "Rakesh Velavaluri, cross-checked line-by-line against source PDFs; pipeline in backend/app/ingestion reproduces this programmatically",
+    "last_updated": "2026-07-04"
+  },
+  "company": {
+    "name": "Senus PLC",
+    "former_names": ["ADF Farm Solutions Limited", "Senus Limited", "Farmeye"],
+    "company_number": "605800",
+    "incorporated": 2017,
+    "founders": ["Brendan Allen", "Eoghan Finneran", "Joe Desbonnet"],
+    "registered_office": "Block D, Daneswell Business Centre, Monksland, Athlone, Co. Roscommon, Ireland",
+    "sector": "Natural Capital management software – climate risk & soil health intelligence (Measurement, Reporting, Verification & Planning of natural resource value chains)",
+    "products": ["Senus Soil Sampling", "Senus ERA (Environmental Reporting Assistant)"],
+    "subsidiaries": [
+      {"name": "ADF Farm Solutions UK Ltd", "country": "United Kingdom", "ownership_pct": 100},
+      {"name": "Loamin Limited UK Ltd", "country": "United Kingdom", "ownership_pct": 100, "acquired": "2025-11", "note": "Geospatial AI business; goodwill €669,550 recognised; €850,000 contingent (performance-linked) consideration; no cash paid on completion"}
+    ],
+    "auditor": "AMQ Accountants Limited, Ennis, Co. Clare",
+    "directors": [
+      {"name": "Gerard Keenan", "role": "Chairman"},
+      {"name": "Brendan Allen", "role": "Managing Director (transitioning to Vice Chairman by Oct 2026, per 24 Jun 2026 PR)"},
+      {"name": "Stephen Coen", "role": "General Manager & Company Secretary (Board appointment 6 Oct 2025)"},
+      {"name": "Eoghan Finneran", "role": "Director / Company Secretary"},
+      {"name": "Joe Desbonnet", "role": "Director"},
+      {"name": "Anthony Childs", "role": "Non-Executive Director"}
+    ],
+    "listing": {
+      "market": "Euronext Access+ Dublin",
+      "ticker": "SENUS",
+      "isin": "IE000O0F49R3",
+      "admission_procedure": "Direct Listing",
+      "admission_date": "2025-12-22",
+      "admission_share_price_eur": 5.126,
+      "market_cap_at_admission_eur": 13130000,
+      "issued_share_capital": 2561332,
+      "sponsor": "Assiduous (world's first 'Neo Sponsor')",
+      "pre_listing_private_placement_eur": 1100000
+    },
+    "strategy": {
+      "name": "Senus 2030",
+      "period": "2026-2030",
+      "target_revenue_cagr_pct": 50,
+      "ebitda_positive_target_fy": "FY2028"
+    },
+    "next_scheduled_results": {"period": "FY2026 (12 months to 30 June 2026)", "announcement_date": "2026-09-11"}
+  },
+  "periods": [
+    {
+      "id": "FY2024",
+      "label": "FY2024 (year ended 30 Jun 2024)",
+      "period_type": "annual",
+      "start_date": "2023-07-01",
+      "end_date": "2024-06-30",
+      "consolidation": "group",
+      "audited": true,
+      "source_document": "adf_farm_solutions_fy2025_consolidated.pdf",
+      "source_note": "Comparative (2024) column in ADF Farm Solutions Ltd consolidated FY2025 financial statements",
+      "income_statement": {
+        "revenue": 688317,
+        "cost_of_sales": 255840,
+        "gross_profit": 432477,
+        "distribution_costs": 2353,
+        "administrative_expenses": 1560853,
+        "other_operating_income": 0,
+        "operating_loss": -1130729,
+        "other_gains_losses": 319,
+        "interest_payable": 48,
+        "loss_before_tax": -1130458,
+        "tax": 32363,
+        "loss_for_period": -1098095,
+        "depreciation": 19412
+      },
+      "balance_sheet": {
+        "tangible_assets": 65390,
+        "goodwill": 0,
+        "development_costs": 0,
+        "debtors": 174730,
+        "cash": 424639,
+        "current_assets": 599369,
+        "creditors_due_within_1yr": 90078,
+        "contingent_consideration": 0,
+        "net_current_assets": 509291,
+        "creditors_due_after_1yr": 0,
+        "net_assets": 574681,
+        "share_capital": 144,
+        "share_premium": 849962,
+        "retained_earnings": -275425
+      },
+      "headcount": {"average_employees": 19}
+    },
+    {
+      "id": "FY2025",
+      "label": "FY2025 (year ended 30 Jun 2025)",
+      "period_type": "annual",
+      "start_date": "2024-07-01",
+      "end_date": "2025-06-30",
+      "consolidation": "group",
+      "audited": true,
+      "source_document": "adf_farm_solutions_fy2025_consolidated.pdf",
+      "income_statement": {
+        "revenue": 836991,
+        "cost_of_sales": 188541,
+        "gross_profit": 648450,
+        "distribution_costs": 1084,
+        "administrative_expenses": 1286058,
+        "other_operating_income": 4998,
+        "operating_loss": -633694,
+        "other_gains_losses": 0,
+        "interest_payable": 2074,
+        "loss_before_tax": -635768,
+        "tax": 45512,
+        "loss_for_period": -590256,
+        "depreciation": 20381
+      },
+      "balance_sheet": {
+        "tangible_assets": 48788,
+        "goodwill": 0,
+        "development_costs": 0,
+        "debtors": 123003,
+        "cash": 140135,
+        "current_assets": 263138,
+        "creditors_due_within_1yr": 243846,
+        "contingent_consideration": 0,
+        "net_current_assets": 19292,
+        "creditors_due_after_1yr": 83655,
+        "net_assets": -15575,
+        "share_capital": 144,
+        "share_premium": 849962,
+        "retained_earnings": -865681
+      },
+      "cash_flow": {
+        "net_cash_operating": -374820,
+        "net_cash_investing": -3451,
+        "net_cash_financing": 93767,
+        "capex": 4451,
+        "new_long_term_loan": 100000,
+        "loan_repayment": 6233,
+        "cash_begin": 424639,
+        "cash_end": 140135
+      },
+      "headcount": {"average_employees": 18},
+      "commercial": {"customer_accounts": 138, "geography": ["Ireland", "UK", "mainland Europe"]},
+      "subsequent_events": [
+        "Oct 2025: €830,000 raised, 15,223 new ordinary shares issued at €0.001 nominal to a mix of directors and new investors",
+        "Nov 2025: Group acquired 100% of Loamin Limited (UK) for nominal value"
+      ]
+    },
+    {
+      "id": "HY_DEC_2024",
+      "label": "H1 FY2025 / HY25 (six months ended 31 Dec 2024)",
+      "period_type": "half_year",
+      "start_date": "2024-07-01",
+      "end_date": "2024-12-31",
+      "consolidation": "group",
+      "audited": false,
+      "source_document": "senus_half_year_results_dec2025.pdf",
+      "source_note": "Comparative (unaudited) column in Senus PLC HY Dec-2025 half year results announcement",
+      "income_statement": {
+        "revenue": 340931,
+        "cost_of_sales": 69600,
+        "gross_profit": 272331,
+        "distribution_costs": 0,
+        "administrative_expenses": 677908,
+        "other_operating_income": 0,
+        "operating_loss": -405577,
+        "other_gains_losses": 0,
+        "interest_payable": 1036,
+        "loss_before_tax": -406613,
+        "tax": 0,
+        "loss_for_period": -406613,
+        "depreciation": 10016
+      },
+      "balance_sheet": {
+        "tangible_assets": 65363,
+        "goodwill": 0,
+        "development_costs": 0,
+        "debtors": 211150,
+        "cash": 72382,
+        "current_assets": 283533,
+        "creditors_due_within_1yr": 90111,
+        "contingent_consideration": 0,
+        "net_current_assets": 193421,
+        "creditors_due_after_1yr": 85468,
+        "net_assets": 173316,
+        "share_capital": 144,
+        "share_premium": 849963,
+        "retained_earnings": -676790
+      },
+      "cash_flow": {
+        "net_cash_operating": -450181,
+        "net_cash_investing": 0,
+        "net_cash_financing": 97924,
+        "capex": 0,
+        "loan_receipt": 97924,
+        "cash_begin": 424639,
+        "cash_end": 72382
+      }
+    },
+    {
+      "id": "HY_DEC_2025",
+      "label": "H1 FY2026 / HY26 (six months ended 31 Dec 2025) – latest reported period",
+      "period_type": "half_year",
+      "start_date": "2025-07-01",
+      "end_date": "2025-12-31",
+      "consolidation": "group",
+      "audited": false,
+      "source_document": "senus_half_year_results_dec2025.pdf",
+      "income_statement": {
+        "revenue": 354813,
+        "cost_of_sales": 64861,
+        "gross_profit": 289952,
+        "distribution_costs": 0,
+        "administrative_expenses": 781975,
+        "other_operating_income": 8269,
+        "operating_loss": -483753,
+        "other_gains_losses": 0,
+        "interest_payable": 1391,
+        "loss_before_tax": -485144,
+        "tax": 0,
+        "loss_for_period": -485144,
+        "depreciation": 10014
+      },
+      "balance_sheet": {
+        "tangible_assets": 42006,
+        "goodwill": 669550,
+        "development_costs": 239765,
+        "total_fixed_assets": 951321,
+        "debtors": 188149,
+        "cash": 735189,
+        "current_assets": 923339,
+        "creditors_due_within_1yr": 387105,
+        "contingent_consideration": 850000,
+        "net_current_assets": -313766,
+        "total_assets_less_current_liabilities": 637554,
+        "creditors_due_after_1yr": 76474,
+        "net_assets": 561081,
+        "share_capital": 25000,
+        "share_premium": 300000,
+        "retained_earnings": 236081
+      },
+      "cash_flow": {
+        "net_cash_operating": -410291,
+        "net_cash_investing": -8500,
+        "net_cash_financing": 1013846,
+        "capex": 8500,
+        "proceeds_share_issue": 1138683,
+        "net_loan_repayment": 124837,
+        "working_capital_movement": 64839,
+        "cash_begin": 140135,
+        "cash_end": 735189
+      },
+      "debt": {"bank_debt_total_eur": 76500},
+      "commercial": {
+        "pipeline_deals_closed_in_period_eur": 700000,
+        "pipeline_deals_closed_in_period_customers": 21,
+        "open_pipeline_eur": 500000,
+        "deals_closed_final_2_months_2025_eur": 425000,
+        "deals_closed_final_2_months_2025_count": 10,
+        "notable_contracts": [
+          "First Milk (UK) whole supply chain project – Senus ERA",
+          "Bank of Ireland – phase 2 engagement, contract value doubled in 2026",
+          "Department of Agriculture, Food and the Marine (Ireland) – Biochar research grant, multiannual, €300,000",
+          "Arla and Scottish Habitat projects executed in period",
+          "Tirlan, Lakeland Dairies, North Cork Creameries – seasonal soil sampling"
+        ]
+      },
+      "corporate_events": [
+        "Direct Listing on Euronext Access Dublin completed 22 Dec 2025",
+        "€1.1m new equity funding completed",
+        "Acquisition of Loamin Ltd. (UK geospatial AI) – goodwill €669,550, contingent consideration €850,000 (performance-linked, no cash paid)"
+      ]
+    }
+  ],
+  "standalone_parent_balance_sheet_dec_2025": {
+    "id": "SENUS_LTD_STUB_DEC_2025",
+    "label": "Senus Limited (parent company only, pre-PLC conversion) – stub period 1 Jul 2025 to 8 Dec 2025",
+    "note": "Company-only balance sheet prepared for CRO re-registration to a PLC; excludes group consolidation of Loamin. Used here for standalone credit/liquidity cross-check only.",
+    "source_document": "senus_balance_sheet_dec2025.pdf",
+    "as_at": "2025-12-08",
+    "balance_sheet": {
+      "tangible_assets": 38113,
+      "investments": 3,
+      "debtors": 261713,
+      "cash": 528379,
+      "current_assets": 790092,
+      "creditors_due_within_1yr": 276030,
+      "net_current_assets": 514062,
+      "total_assets_less_current_liabilities": 552178,
+      "creditors_due_after_1yr": 79155,
+      "net_assets": 473023,
+      "share_capital": 25000,
+      "share_premium": 0,
+      "retained_earnings": 448023
+    },
+    "loan_maturity_profile": {
+      "repayable_within_1yr": 10088,
+      "repayable_1_to_2yr": 10500,
+      "repayable_2_to_5yr": 34500,
+      "repayable_after_5yr": 34155,
+      "total": 89243
+    },
+    "stub_period_movement": {
+      "opening_equity_30_jun_2025": 74949,
+      "loss_for_stub_period": -431931,
+      "net_proceeds_equity_issue": 854845,
+      "other_movements_in_equity": -24840,
+      "closing_equity_8_dec_2025": 473023
+    }
+  },
+  "provenance": [
+    {"file": "senus_half_year_results_dec2025.pdf", "title": "Senus PLC Half Year Results for the 6 months ended 31 December 2025", "date": "2026-03-19", "used_for": ["HY_DEC_2025", "HY_DEC_2024", "commercial pipeline facts"]},
+    {"file": "senus_balance_sheet_dec2025.pdf", "title": "Senus Limited Balance Sheet as at 08 December 2025 (audited, for PLC re-registration)", "date": "2025-12-11", "used_for": ["standalone_parent_balance_sheet_dec_2025"]},
+    {"file": "adf_farm_solutions_fy2025_consolidated.pdf", "title": "ADF Farm Solutions Limited Annual Report & Consolidated Financial Statements, year ended 30 June 2025", "date": "2025-11-19", "used_for": ["FY2024", "FY2025"]},
+    {"file": "senus_direct_listing_pr.pdf", "title": "Senus PLC Direct Listing on Euronext Access Dublin", "date": "2025-12-18", "used_for": ["company.listing"]},
+    {"file": "senus_notification_of_results.pdf", "title": "Senus PLC Notification of Results and Investor Presentation", "date": "2026-02-17", "used_for": ["company profile cross-check"]},
+    {"file": "senus_leadership_transition_pr.pdf", "title": "Senus PLC Executive Leadership Transition and Notice of Results", "date": "2026-06-24", "used_for": ["company.directors", "company.next_scheduled_results"]}
+  ]
+}
