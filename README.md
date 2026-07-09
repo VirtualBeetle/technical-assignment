@@ -159,14 +159,21 @@ metrics engine against hand-calculated figures.
 - **AI commentary defaults to rule-based**, not because the LLM path isn't real, but so the
   app is always demoable without an API key; it falls back automatically if the LLM call fails.
 
-## What I'd do next with more time
+## Features
 
-- Wire the LLM structuring stage into `extract_pdfs.py` itself (currently only commentary has
-  a real LLM hook) so ambiguous note-number placements can be resolved by an LLM.
-- Add a RAG layer over the qualitative filing sections so AI Insights can answer free-text
-  questions, not just narrate computed metrics.
-- Multi-tenant the data model so this becomes a template for any Assiduous client, not just Senus.
-- Replace the demo JWT auth with a production-grade auth provider.
+- Full-stack app — FastAPI backend, Next.js dashboard, PostgreSQL/SQLite storage, JWT auth.
+- OCR + regex extraction pipeline, validated 57/57 (100%) against a hand-verified dataset.
+- Metrics engine covering all five board-report categories: Growth & Revenue, Profitability,
+  Cash & Liquidity, Solvency & Leverage, Returns — with an EBITDA→FCF bridge and cash runway.
+- AI commentary layer — deterministic rule-based generator by default, drop-in LLM upgrade
+  with an API key, automatic fallback if the LLM call fails.
+- Period selector spanning FY2024, FY2025, H1 FY2025, and H1 FY2026, recomputing metrics live.
+- One codebase, two deploy paths — `docker compose up --build` locally, or a Render Blueprint
+  (`render.yaml`) for a one-click cloud deploy, using the same Docker images both times.
+- GitHub Actions CI — runs the backend test suite and re-validates the extraction pipeline on
+  every push.
+- Unit-tested metrics engine, including an internal-consistency check between the P&L and
+  cash-flow statement.
 
 ## Deliverables
 
