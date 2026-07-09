@@ -5,7 +5,7 @@ platform for Senus PLC, for Management, the Board, Equity Investors and Credit P
 
 **Live demo:** _add Render frontend URL_
 **Demo login:** `ceo@senus.com` / `Senus2030!`
-**GitHub:** [github.com/VirtualBeetle/senus-board-report](https://github.com/VirtualBeetle/senus-board-report)
+**GitHub:** [github.com/VirtualBeetle/technical-assignment](https://github.com/VirtualBeetle/technical-assignment)
 
 ## What this is
 
@@ -172,5 +172,5 @@ metrics engine against hand-calculated figures.
 
 1. Live deployed app: _add Render frontend URL_
 2. YouTube demo link: _add after recording_
-3. GitHub repo link: [github.com/VirtualBeetle/senus-board-report](https://github.com/VirtualBeetle/senus-board-report)
+3. GitHub repo link: [github.com/VirtualBeetle/technical-assignment](https://github.com/VirtualBeetle/technical-assignment)
 4. One-page write-up: [`ONE_PAGER.md`](./ONE_PAGER.md)
