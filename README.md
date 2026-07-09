@@ -72,7 +72,7 @@ platform for Senus PLC, for Management, the Board, Equity Investors and Credit P
 | ORM | SQLAlchemy 2.0 | Typed models, explicit schema, no framework lock-in. |
 | PDF/OCR | pdfplumber, pytesseract, pdf2image | Two of six filings are scanned images with no text layer — needed real OCR. |
 | Frontend | Next.js 14 (App Router) + TypeScript + Tailwind + Recharts | Matches the JD's stack; client-rendered SPA fits an authenticated dashboard. |
-| Auth | JWT (python-jose) + bcrypt (passlib) | Deliberately minimal — see Assumptions. |
+| Auth | JWT (python-jose) + bcrypt (passlib) | Deliberately minimal, demo-grade auth — single hardcoded account, JWT in `localStorage`. |
 | AI | Rule-based generator by default; optional OpenAI-compatible LLM call | Same pattern as my FAIR_GPT project: works with zero credentials, upgrades cleanly with a key. |
 | Deployment | Docker Compose (local) / Render Blueprint (`render.yaml`, cloud) | Same containers run locally and in production. |
 
@@ -128,36 +128,6 @@ metrics engine against hand-calculated figures.
   then in another terminal `cd frontend && npm install && npm run dev`.
 - **Extraction validation report** — `cd backend && python -c "from app.ingestion.extract_pdfs import run; run()"`
 - **Tests** — `cd backend && python -m pytest tests/ -v`
-
-## Deploying to Render
-
-- Push to GitHub, then in the [Render dashboard](https://dashboard.render.com) click
-  **New → Blueprint** and point it at the repo.
-- Render reads `render.yaml` and provisions one click: Postgres + backend + frontend.
-- Root-context Docker build bakes `data/` into the backend image; no manual env vars needed
-  (`JWT_SECRET` auto-generated, `DATABASE_URL` wired automatically).
-- The frontend's Next.js rewrite proxies `/api/*` to the backend over Render's private
-  network, so there's no CORS configuration to get right.
-- Free tier: services cold-start after 15 min idle (~30-60s to wake), Postgres expires after
-  90 days. Bump `plan:` to `starter` in `render.yaml` for a longer review window.
-- For real LLM commentary instead of the demo-mode generator, set `AI_PROVIDER=openai` and
-  `OPENAI_API_KEY` as env vars on the backend service after deploy.
-
-## Assumptions
-
-- **Auth is demo-grade** — single hardcoded CEO account, JWT in `localStorage`. A real
-  deployment would add refresh tokens, httpOnly cookies, and proper RBAC.
-- **The Senus Limited balance sheet as at 8 Dec 2025 is company-only (parent), not
-  consolidated** — prepared for the CRO re-registration, pre-dates the Loamin acquisition at
-  group level. Used only as a standalone credit/liquidity cross-check.
-- **EBITDA = operating loss + depreciation** — no intangible amortisation charged yet, so
-  EBITDA and "EBIT + depreciation" are the same number here.
-- **DSCR and Net Debt/EBITDA reported as "not yet meaningful"** while EBITDA is negative,
-  rather than shown as a nonsensical negative ratio — Senus 2030 targets EBITDA breakeven in FY2028.
-- **Customer-account count (138) is a single data point**, not a time series — shown as a KPI;
-  pipeline figures from H1 FY2026 are shown as forward-looking context, not restated as revenue.
-- **AI commentary defaults to rule-based**, not because the LLM path isn't real, but so the
-  app is always demoable without an API key; it falls back automatically if the LLM call fails.
 
 ## Features
 
