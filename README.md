@@ -3,7 +3,7 @@
 Built for the Assiduous Corp Technology Graduate assignment: an AI-native Board Report
 platform for Senus PLC, for Management, the Board, Equity Investors and Credit Providers.
 
-**Live demo:** _add Render frontend URL_
+**Live demo:** [https://senus-board-report-frontend.onrender.com/dashboard](https://senus-board-report-frontend.onrender.com/dashboard)
 **Demo login:** `ceo@senus.com` / `Senus2030!`
 **GitHub:** [github.com/VirtualBeetle/technical-assignment](https://github.com/VirtualBeetle/technical-assignment)
 
@@ -122,7 +122,7 @@ metrics engine against hand-calculated figures.
 
 ## Running it
 
-- **Live demo** — _add Render frontend URL_, no setup needed.
+- **Live demo** — [https://senus-board-report-frontend.onrender.com/dashboard](https://senus-board-report-frontend.onrender.com/dashboard), no setup needed.
 - **Docker Compose** — `docker compose up --build` → frontend `localhost:3000`, backend `localhost:8000/docs`.
 - **Local dev, no Docker** — `cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload`,
   then in another terminal `cd frontend && npm install && npm run dev`.
@@ -177,7 +177,7 @@ metrics engine against hand-calculated figures.
 
 ## Deliverables
 
-1. Live deployed app: _add Render frontend URL_
+1. Live deployed app: [https://senus-board-report-frontend.onrender.com/dashboard](https://senus-board-report-frontend.onrender.com/dashboard)
 2. YouTube demo link: _add after recording_
 3. GitHub repo link: [github.com/VirtualBeetle/technical-assignment](https://github.com/VirtualBeetle/technical-assignment)
 4. One-page write-up: [`ONE_PAGER.md`](./ONE_PAGER.md)
