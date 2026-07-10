@@ -141,6 +141,6 @@ metrics engine against hand-calculated figures.
 ## Deliverables
 
 1. Live deployed app: [https://senus-board-report-frontend.onrender.com/dashboard](https://senus-board-report-frontend.onrender.com/dashboard)
-2. YouTube demo link: _add after recording_
+2. YouTube demo link: [youtu.be/0uYZA0ygzVs](https://youtu.be/0uYZA0ygzVs)
 3. GitHub repo link: [github.com/VirtualBeetle/technical-assignment](https://github.com/VirtualBeetle/technical-assignment)
 4. One-page write-up: [`ONE_PAGER.md`](./ONE_PAGER.md)
