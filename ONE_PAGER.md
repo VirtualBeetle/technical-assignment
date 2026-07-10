@@ -1,4 +1,4 @@
-# Senus PLC Board Report — One-Page Write-Up
+Senus PLC Board Report — One-Page Write-Up
 
 What it is: an AI-native full-stack platform that turns Senus PLC's public filings into
 an interactive Board Report for Management, the Board, Equity Investors and Credit Providers —
@@ -6,7 +6,7 @@ covering Growth & Revenue, Profitability, Cash & Liquidity, Solvency & Leverage,
 AI-generated commentary, across FY2024, FY2025, H1 FY2025 and H1 FY2026 (the latest reported
 period).
 
-Why it's built this way
+Why it's built this way:
 
 Senus is a pre-EBITDA-breakeven, recently-listed micro-cap that just completed its first
 acquisition (Loamin) and a direct listing. That context shaped three deliberate decisions:
